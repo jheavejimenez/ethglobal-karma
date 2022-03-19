@@ -1,4 +1,4 @@
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import Colors from '../constants/Colors';
@@ -17,27 +17,28 @@ export default function HomeTabNavigator() {
             initialRouteName="Home"
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme].tint,
-                headerShown: false
+                headerShown: false,
+                tabBarShowLabel: false
             }}>
             <BottomTab.Screen
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
                 }}
             />
             <BottomTab.Screen
                 name="Chat"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({ color }) => <TabBarIcon name="chatbox" color={color} />,
                 }}
             />
             <BottomTab.Screen
                 name="Profile"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+                    tabBarIcon: ({ color }) => <TabBarIcon name="person" color={color} />,
                 }}
             />
         </BottomTab.Navigator>
@@ -48,8 +49,8 @@ export default function HomeTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-    name: React.ComponentProps<typeof FontAwesome>['name'];
+    name: React.ComponentProps<typeof Ionicons>['name'];
     color: string;
 }) {
-    return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+    return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
