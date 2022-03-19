@@ -13,6 +13,7 @@ interface HeaderProps {
 
 
 export default function ViewWithLoading({ children, style, loading }: HeaderProps) {
+    const colorScheme = useColorScheme() === 'light' ? DefaultColor.white : DefaultColor.black;
 
     return (
         <HeaderHeightContext.Consumer>
@@ -27,7 +28,7 @@ export default function ViewWithLoading({ children, style, loading }: HeaderProp
                     <SafeAreaView style={[styles.container, {
                         flex: 1,
                         zIndex: 1,
-                        backgroundColor: DefaultColor.white
+                        backgroundColor: colorScheme
                     }]}>
                         {children}
                         {loading && <Loader />}
