@@ -17,7 +17,7 @@ export default function HomeTabNavigator() {
         <BottomTab.Navigator
             initialRouteName="Home"
             screenOptions={{
-                tabBarActiveTintColor: Colors[colorScheme].tint,
+                tabBarActiveTintColor: DefaultColor.main,
                 headerShown: false,
                 tabBarShowLabel: false
             }}>
@@ -25,21 +25,21 @@ export default function HomeTabNavigator() {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="home" color={themeColor} />,
+                    tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? color : themeColor} />,
                 }}
             />
             <BottomTab.Screen
                 name="Chat"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="chatbox" color={themeColor} />,
+                    tabBarIcon: ({ color, focused }) => <TabBarIcon name="chatbox" color={focused ? color : themeColor} />,
                 }}
             />
             <BottomTab.Screen
                 name="Profile"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color }) => <TabBarIcon name="person" color={themeColor} />,
+                    tabBarIcon: ({ color, focused }) => <TabBarIcon name="person" color={focused ? color : themeColor} />,
                 }}
             />
         </BottomTab.Navigator>
