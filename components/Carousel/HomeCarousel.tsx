@@ -34,7 +34,7 @@ export default function HomeCarousel() {
                 hasParallaxImages={true}
                 inactiveSlideScale={0.94}
                 inactiveSlideOpacity={0.7}
-                // inactiveSlideShift={20}
+                inactiveSlideShift={20}
                 containerCustomStyle={styles.slider}
                 contentContainerCustomStyle={styles.sliderContentContainer}
                 loop={true}
