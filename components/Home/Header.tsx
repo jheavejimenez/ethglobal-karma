@@ -16,6 +16,7 @@ export default function Header() {
             <Avatar
                 size={64}
                 rounded
+                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
                 icon={{ name: 'pencil', type: 'font-awesome' }}
                 containerStyle={{ backgroundColor: '#6733b9' }}
             />
