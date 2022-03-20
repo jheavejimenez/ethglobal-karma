@@ -7,6 +7,7 @@ export const DefaultColor = {
   white: '#fff',
   black: '#000',
   dark: '#707070',
+  darken: '#C4C4C4'
 }
 
 export default {
