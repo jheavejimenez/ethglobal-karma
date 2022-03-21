@@ -5,6 +5,8 @@ import Colors, { DefaultColor } from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { HomeScreen } from '../screens/Home';
 import { HomeTabParamList } from '../types';
+import ChatNavigator from './ChatNavigator';
+import ProfileNavigator from './ProfileNavigator';
 
 
 const BottomTab = createBottomTabNavigator<HomeTabParamList>();
@@ -30,14 +32,14 @@ export default function HomeTabNavigator() {
             />
             <BottomTab.Screen
                 name="Chat"
-                component={HomeScreen}
+                component={ChatNavigator}
                 options={{
                     tabBarIcon: ({ color, focused }) => <TabBarIcon name="chatbox" color={focused ? color : themeColor} />,
                 }}
             />
             <BottomTab.Screen
                 name="Profile"
-                component={HomeScreen}
+                component={ProfileNavigator}
                 options={{
                     tabBarIcon: ({ color, focused }) => <TabBarIcon name="person" color={focused ? color : themeColor} />,
                 }}
