@@ -5,14 +5,15 @@ import { DefaultButton } from "../../components/Button/DefaultButton";
 import { PoppinText } from "../../components/StyledText";
 import { Text, View } from '../../components/Themed';
 import ViewWithLoading from "../../components/ViewWithLoading";
+import { login } from "../../repositories/authentication/login-user"
+
 
 export default function ProfileScreen() {
     const [loading, setLoading] = useState<boolean>(false);
     const [connect, setConnect] = useState<boolean>(false);
 
     const handleConnect = () => {
-        // TODO meta mask connection here;
-        // set true if already connected;
+        login();
         setConnect(true);
     }
 
