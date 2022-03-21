@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { Post } from './models/Post';
 
 declare global {
   namespace ReactNavigation {
@@ -34,7 +35,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   NativeStackScreenProps<RootStackParamList>
 >;
 
-export type HomeTabParamList = {
+export type TabParamList = {
   Home: undefined;
   Chat: undefined;
   Profile: undefined;
@@ -46,4 +47,13 @@ export type ChatParamList = {
 
 export type ProfileParamList = {
   UserProfile: undefined;
+}
+
+
+export type HomeParamList = {
+  Feed: undefined;
+  ItemList: undefined;
+  ItemDetail: {
+    post: Post;
+  }
 }

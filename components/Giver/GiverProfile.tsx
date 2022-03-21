@@ -19,7 +19,7 @@ export default function GiverProfile(props: IProps) {
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
                 <Avatar
-                    size={64}
+                    size={45}
                     rounded
                     source={{ uri: image }}
                 />
