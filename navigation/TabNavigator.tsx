@@ -4,14 +4,15 @@ import * as React from 'react';
 import Colors, { DefaultColor } from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { HomeScreen } from '../screens/Home';
-import { HomeTabParamList } from '../types';
+import { TabParamList } from '../types';
 import ChatNavigator from './ChatNavigator';
+import HomeNavigator from './HomeNavigator';
 import ProfileNavigator from './ProfileNavigator';
 
 
-const BottomTab = createBottomTabNavigator<HomeTabParamList>();
+const BottomTab = createBottomTabNavigator<TabParamList>();
 
-export default function HomeTabNavigator() {
+export default function TabNavigator() {
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
 
@@ -25,7 +26,7 @@ export default function HomeTabNavigator() {
             }}>
             <BottomTab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomeNavigator}
                 options={{
                     tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? color : themeColor} />,
                 }}

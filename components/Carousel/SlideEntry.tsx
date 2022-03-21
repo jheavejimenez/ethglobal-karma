@@ -6,6 +6,7 @@ import { PoppinText } from '../StyledText';
 import { Post } from '../../models/Post';
 import { View } from '../Themed';
 import { DefaultColor } from '../../constants/Colors';
+import { useNavigation } from '@react-navigation/native';
 
 interface IProps {
     data: Post;
@@ -18,6 +19,7 @@ export default function SliderEntry(props: IProps) {
     const { data, parallax, parallaxProps, even } = props;
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.white : DefaultColor.dark;
+    const navigation = useNavigation();
 
     const image = () => {
 
@@ -46,7 +48,7 @@ export default function SliderEntry(props: IProps) {
         <Pressable
             style={[styles.slideInnerContainer, styles.shadow]}
             onPress={() => {
-
+                navigation.navigate("ItemDetail", { post: data });
             }}
         >
             <View style={styles.imageContainer}>
