@@ -39,3 +39,11 @@ export type HomeTabParamList = {
   Chat: undefined;
   Profile: undefined;
 }
+
+export type ChatParamList = {
+  ChatList: undefined;
+}
+
+export type ProfileParamList = {
+  UserProfile: undefined;
+}
