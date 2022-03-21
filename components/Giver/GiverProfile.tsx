@@ -1,8 +1,7 @@
-import { Ionicons } from "@expo/vector-icons";
 import * as React from "react";
 import { PoppinText } from "../StyledText";
 import { View } from "../Themed";
-import { Pressable, StyleSheet, useColorScheme } from "react-native";
+import { StyleSheet } from "react-native";
 import { DefaultColor } from "../../constants/Colors";
 import { Profile } from "../../models/Profile";
 import { Avatar } from "react-native-elements";
@@ -15,8 +14,6 @@ interface IProps {
 
 export default function GiverProfile(props: IProps) {
     const { name, isFollowed, followers, image } = props.profile;
-    const colorScheme = useColorScheme();
-    const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
 
     return (
         <View style={styles.container}>
@@ -45,7 +42,7 @@ export default function GiverProfile(props: IProps) {
                 maxWidth: 110
             }}>
                 <DefaultButton
-                    title={isFollowed ? "Followed" : "Follow"}
+                    title={isFollowed ? "Following" : "Follow"}
                     onPress={() => { }}
                     backgroundColor={isFollowed ? DefaultColor.main : DefaultColor.secondary}
                 />
