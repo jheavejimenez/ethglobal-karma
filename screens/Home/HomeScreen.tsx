@@ -20,8 +20,11 @@ export default function HomeScreen() {
     return (
         <ViewWithLoading loading={false}>
             <View style={{ paddingHorizontal: 20 }}>
-                <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                    <Header />
+                <Header />
+                <ScrollView
+                    contentContainerStyle={{ flexGrow: 1 }}
+                    showsVerticalScrollIndicator={false}
+                >
                     <View style={styles.nearbyContainer}>
                         <CommonHeader
                             title='Nearby items'
@@ -52,6 +55,7 @@ const styles = StyleSheet.create({
         flex: 0
     },
     topGiverContainer: {
-        flex: 0
+        flex: 0,
+        paddingVertical: 20
     }
 });
