@@ -29,6 +29,7 @@ export default function ItemDetailScreen() {
                 <ScrollView
                     contentContainerStyle={{ flexGrow: 1 }}
                     style={{ height: '100%' }}
+                    showsVerticalScrollIndicator={false}
                 >
                     <View style={styles.imageContainer}>
                         <Image
