@@ -7,13 +7,18 @@ import { Profile } from "../../models/Profile";
 import { Avatar } from "react-native-elements";
 import { FollowAbbrev } from "../../utils/FollowAbrrev";
 import { DefaultButton } from "../Button/DefaultButton";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 interface IProps {
     profile: Profile
 }
 
 export default function GiverProfile(props: IProps) {
-    const { name, isFollowed, followers, image } = props.profile;
+    const profile = props.profile;
+    const { name, isFollowed, followers, profilePhoto } = profile;
+    const [follow, setFollow] = useState<boolean>(isFollowed);
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -21,7 +26,13 @@ export default function GiverProfile(props: IProps) {
                 <Avatar
                     size={45}
                     rounded
-                    source={{ uri: image }}
+                    source={{ uri: profilePhoto }}
+                    onPress={() => {
+                        navigation.navigate("CollectionHome", {
+                            screen: 'Collection',
+                            params: { profile: profile }
+                        });
+                    }}
                 />
                 <View style={styles.infoContainer}>
                     <PoppinText style={{
@@ -42,9 +53,9 @@ export default function GiverProfile(props: IProps) {
                 maxWidth: 110
             }}>
                 <DefaultButton
-                    title={isFollowed ? "Following" : "Follow"}
-                    onPress={() => { }}
-                    backgroundColor={isFollowed ? DefaultColor.main : DefaultColor.secondary}
+                    title={follow ? "Following" : "Follow"}
+                    onPress={() => setFollow(!follow)}
+                    backgroundColor={follow ? DefaultColor.main : DefaultColor.secondary}
                 />
             </View>
         </View>

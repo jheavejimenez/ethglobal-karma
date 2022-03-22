@@ -3,20 +3,28 @@ export class Profile {
     name: string;
     followers: number;
     isFollowed: boolean;
-    image: string;
+    profilePhoto: string;
+    backgroundPhoto: string;
+    introduction: string;
 
     constructor(
         pk: string,
         name: string,
         followers: number,
         isFollowed: boolean,
-        image: string
+        profilePhoto: string,
+        backgroundPhoto: string,
+        introduction: string
     ) {
         this.pk = pk
         this.name = name
         this.followers = followers
         this.isFollowed = isFollowed
-        this.image = image
+        this.profilePhoto = profilePhoto
+        this.backgroundPhoto = backgroundPhoto
+        this.introduction = introduction
     }
+
+
 
 }

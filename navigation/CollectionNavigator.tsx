@@ -1,24 +1,22 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { HomeScreen } from "../screens/Home";
-import { ItemDetailScreen, ItemListScreen } from "../screens/Item";
-import { HomeParamList } from "../types";
+import { CollectionParamList } from "../types";
 import useColorScheme from '../hooks/useColorScheme';
 import { DefaultColor } from "../constants/Colors";
 import { TouchableOpacity } from "react-native";
-import CollectionNavigator from "./CollectionNavigator";
+import { CollectionScreen } from "../screens/Collection";
 
 
-const Stack = createNativeStackNavigator<HomeParamList>();
+const Stack = createNativeStackNavigator<CollectionParamList>();
 
-export default function HomeNavigator() {
+export default function CollectionNavigator() {
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
 
     return (
         <Stack.Navigator
-            initialRouteName="Feed"
+            initialRouteName="Collection"
             screenOptions={({ navigation }) => ({
                 headerTitleAlign: 'center',
                 headerLeft: () => (
@@ -31,26 +29,13 @@ export default function HomeNavigator() {
                 )
             })}
         >
-            <Stack.Screen name="Feed" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen
-                name="ItemList"
-                component={ItemListScreen}
-            />
-            <Stack.Screen
-                name="ItemDetail"
-                component={ItemDetailScreen}
+                name="Collection"
+                component={CollectionScreen}
                 options={{
-                    title: 'Details'
+                    title: 'Collections'
                 }}
             />
-            <Stack.Screen
-                name="CollectionHome"
-                component={CollectionNavigator}
-                options={{
-                    headerShown: false
-                }}
-            />
-
         </Stack.Navigator>
     );
 }
