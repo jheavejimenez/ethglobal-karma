@@ -7,6 +7,7 @@ import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Post } from './models/Post';
+import { Profile } from './models/Profile';
 
 declare global {
   namespace ReactNavigation {
@@ -55,5 +56,13 @@ export type HomeParamList = {
   ItemList: undefined;
   ItemDetail: {
     post: Post;
-  }
+  };
+  CollectionHome: undefined;
+}
+
+
+export type CollectionParamList = {
+  Collection: {
+    profile: Profile;
+  };
 }

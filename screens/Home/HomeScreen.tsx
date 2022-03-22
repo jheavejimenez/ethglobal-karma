@@ -5,7 +5,7 @@ import { PoppinText } from '../../components/StyledText';
 import { View } from '../../components/Themed';
 import ViewWithLoading from '../../components/ViewWithLoading';
 import { DefaultColor } from '../../constants/Colors';
-import { ScrollView, StyleSheet } from 'react-native';
+import { Platform, ScrollView, StyleSheet } from 'react-native';
 import useColorScheme from '../../hooks/useColorScheme';
 import { HomeCarousel } from '../../components/Carousel';
 import CommonHeader from '../../components/Header/CommonHeader';
@@ -19,11 +19,12 @@ export default function HomeScreen() {
 
     return (
         <ViewWithLoading loading={false}>
-            <View style={{ paddingHorizontal: 20 }}>
+            <View style={{ paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 30 : 0 }}>
                 <Header />
                 <ScrollView
-                    contentContainerStyle={{ flexGrow: 1 }}
+                    contentContainerStyle={{ flexGrow: 1, marginBottom: 30 }}
                     showsVerticalScrollIndicator={false}
+                    style={{ height: '100%' }}
                 >
                     <View style={styles.nearbyContainer}>
                         <CommonHeader
@@ -37,9 +38,9 @@ export default function HomeScreen() {
                             title='Top givers'
                             onPress={() => { }}
                         />
-                        {profiles && profiles.map((profile: Profile) => (
+                        {profiles && profiles.map((profile: Profile, index: number) => (
                             <GiverProfile
-                                key={profile.pk}
+                                key={index}
                                 profile={profile}
                             />
                         ))}
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
     },
     topGiverContainer: {
         flex: 0,
-        paddingVertical: 20
+        paddingVertical: 20,
+        marginBottom: 70
     }
 });
