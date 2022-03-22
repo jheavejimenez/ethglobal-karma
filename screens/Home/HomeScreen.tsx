@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
     return (
         <ViewWithLoading loading={false}>
-            <View style={{ paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 30 : 0 }}>
+            <View style={{ flex: 1, paddingHorizontal: 20, paddingTop: Platform.OS === 'android' ? 30 : 0 }}>
                 <Header />
                 <ScrollView
                     contentContainerStyle={{ flexGrow: 1, marginBottom: 30 }}
@@ -58,6 +58,5 @@ const styles = StyleSheet.create({
     topGiverContainer: {
         flex: 0,
         paddingVertical: 20,
-        marginBottom: 70
     }
 });
