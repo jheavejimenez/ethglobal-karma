@@ -12,7 +12,7 @@ export const generateChallenge = (address: string) => {
     query: gql(GET_CHALLENGE),
     variables: {
       request: {
-          address,
+        address,
       },
     },
   })

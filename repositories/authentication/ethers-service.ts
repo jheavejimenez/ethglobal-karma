@@ -7,8 +7,8 @@ const { ethereum } = window as any;
 
 export const ethersProvider = new ethers.providers.Web3Provider(ethereum);
 
-export const getAddress = async() => {
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+export const getAddress = async () => {
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
   return accounts[0];
 }
 

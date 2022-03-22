@@ -1,5 +1,5 @@
 import { apolloClient } from './apollo-client';
-import { gql } from '@apollo/client'
+import { gql } from '@apollo/client';
 
 const AUTHENTICATION = `
   mutation($request: SignedAuthChallenge!) { 
@@ -11,7 +11,7 @@ const AUTHENTICATION = `
 `
 
 export const authenticate = (address: string, signature: string) => {
-   return apolloClient.mutate({
+  return apolloClient.mutate({
     mutation: gql(AUTHENTICATION),
     variables: {
       request: {
