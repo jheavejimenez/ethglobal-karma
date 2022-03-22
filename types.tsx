@@ -66,3 +66,8 @@ export type CollectionParamList = {
     profile: Profile;
   };
 }
+
+export type CollectionTopTabParamList = {
+  ItemList: undefined;
+  HistoryList: undefined;
+}
