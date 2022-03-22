@@ -33,6 +33,9 @@ export default function GiverProfile(props: IProps) {
                             params: { profile: profile }
                         });
                     }}
+                    overlayContainerStyle={{
+                        elevation: 4
+                    }}
                 />
                 <View style={styles.infoContainer}>
                     <PoppinText style={{
