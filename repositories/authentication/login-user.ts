@@ -10,8 +10,7 @@ export const login = async () => {
   const challengeResponse = await generateChallenge(address);
   
   // sign the text with the wallet
-  const signature = await signText(challengeResponse.data.challenge.text)
-  
+  const signature = await signText(challengeResponse.data.challenge.text).toString();
   const accessTokens = await authenticate(address, signature);
   console.log(accessTokens);
 }

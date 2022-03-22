@@ -13,7 +13,24 @@ export default function ProfileScreen() {
     const [connect, setConnect] = useState<boolean>(false);
 
     const handleConnect = () => {
-        login();
+        if ((window as any).ethereum) {
+            handleEthereum();
+        } else {
+            window.addEventListener('ethereum#initialized', handleEthereum, {
+                once: true,
+            });
+            setTimeout(handleEthereum, 3000); // 3 seconds
+        }
+        
+        function handleEthereum() {
+            const { ethereum } = window as any;
+            if (ethereum && ethereum.isMetaMask) {
+                console.log('Ethereum successfully detected!');
+                console.log(login());
+            } else {
+                console.log('Please install MetaMask!');
+            }
+        }
         setConnect(true);
     }
 
