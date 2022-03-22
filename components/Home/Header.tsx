@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 import { View } from '../../components/Themed';
 import { Avatar } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColor } from '../../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
+import { PoppinText } from '../StyledText';
+import { DefaultButton } from '../Button/DefaultButton';
+import { Surface } from 'react-native-paper';
 
 
 export default function Header() {
@@ -13,24 +16,49 @@ export default function Header() {
 
     return (
         <View style={styles.container}>
-            <Avatar
-                size={64}
-                rounded
-                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
-                icon={{ name: 'pencil', type: 'font-awesome' }}
-                containerStyle={{ backgroundColor: '#6733b9' }}
-            />
-            <View style={styles.iconContainer}>
-                <Pressable
-                    style={styles.pressableContainer}
+            <View style={[styles.container, {
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }]}>
+                <PoppinText style={styles.titleStyle}>
+                    Karma
+                </PoppinText>
+                <View style={styles.iconContainer}>
+                    <Pressable
+                        style={styles.pressableContainer}
+                    >
+                        <Ionicons name='search-outline' size={24} color={themeColor} />
+                    </Pressable>
+                    <Pressable
+                        style={styles.pressableContainer}
+                    >
+                        <Ionicons name='notifications-outline' size={24} color={themeColor} />
+                    </Pressable>
+                </View>
+            </View>
+
+            <View style={[styles.container, {
+                flexDirection: 'row',
+            }]}>
+                <Avatar
+                    size={64}
+                    rounded
+                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
+                    icon={{ name: 'pencil', type: 'font-awesome' }}
+                    containerStyle={{ backgroundColor: '#6733b9' }}
+                    overlayContainerStyle={{
+                        elevation: 5,
+                    }}
+                />
+                <TouchableOpacity
+                    style={styles.buttonStyle}
                 >
-                    <Ionicons name='search-outline' size={24} color={themeColor} />
-                </Pressable>
-                <Pressable
-                    style={styles.pressableContainer}
-                >
-                    <Ionicons name='notifications-outline' size={24} color={themeColor} />
-                </Pressable>
+                    <Surface style={styles.textStyle}>
+                        <PoppinText >
+                            Share something?
+                        </PoppinText>
+                    </Surface>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -39,9 +67,7 @@ export default function Header() {
 const styles = StyleSheet.create({
     container: {
         flex: 0,
-        flexDirection: 'row',
         width: '100%',
-        justifyContent: 'space-between',
         paddingVertical: 10,
     },
     iconContainer: {
@@ -51,5 +77,28 @@ const styles = StyleSheet.create({
     },
     pressableContainer: {
         marginHorizontal: 10
+    },
+    titleStyle: {
+        fontFamily: 'poppins-semibold',
+        fontSize: 25
+    },
+    buttonStyle: {
+        flex: 0,
+        width: '80%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'justify',
+
+    },
+    textStyle: {
+        elevation: 4,
+        borderWidth: 1,
+        padding: 10,
+        paddingHorizontal: 40,
+        borderRadius: 10,
+        borderColor: DefaultColor.darken,
+        textAlignVertical: 'bottom',
+        fontFamily: 'poppins-semibold',
+
     }
 });
