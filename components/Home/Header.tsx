@@ -46,18 +46,13 @@ export default function Header() {
                     source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
                     icon={{ name: 'pencil', type: 'font-awesome' }}
                     containerStyle={{ backgroundColor: '#6733b9' }}
-                    overlayContainerStyle={{
-                        elevation: 5,
-                    }}
                 />
                 <TouchableOpacity
                     style={styles.buttonStyle}
                 >
-                    <Surface style={styles.textStyle}>
-                        <PoppinText >
-                            Share something?
-                        </PoppinText>
-                    </Surface>
+                    <PoppinText style={styles.textStyle}>
+                        Share something?
+                    </PoppinText>
                 </TouchableOpacity>
             </View>
         </View>
@@ -91,7 +86,6 @@ const styles = StyleSheet.create({
 
     },
     textStyle: {
-        elevation: 4,
         borderWidth: 1,
         padding: 10,
         paddingHorizontal: 40,
