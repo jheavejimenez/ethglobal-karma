@@ -6,13 +6,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { DefaultColor } from '../../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
 import { PoppinText } from '../StyledText';
-import { DefaultButton } from '../Button/DefaultButton';
-import { Surface } from 'react-native-paper';
+import { useWalletConnect } from '@walletconnect/react-native-dapp';
 
 
 export default function Header() {
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
+    const connected = useWalletConnect().connected;
 
     return (
         <View style={styles.container}>
@@ -36,25 +36,26 @@ export default function Header() {
                     </Pressable>
                 </View>
             </View>
-
-            <View style={[styles.container, {
-                flexDirection: 'row',
-            }]}>
-                <Avatar
-                    size={64}
-                    rounded
-                    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
-                    icon={{ name: 'pencil', type: 'font-awesome' }}
-                    containerStyle={{ backgroundColor: '#6733b9' }}
-                />
-                <TouchableOpacity
-                    style={styles.buttonStyle}
-                >
-                    <PoppinText style={styles.textStyle}>
-                        Share something?
-                    </PoppinText>
-                </TouchableOpacity>
-            </View>
+            {connected &&
+                <View style={[styles.container, {
+                    flexDirection: 'row',
+                }]}>
+                    <Avatar
+                        size={64}
+                        rounded
+                        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbBMwRJfFeRL23d-4MB-yq_6NyJFUw7zprYQ&usqp=CAU' }}
+                        icon={{ name: 'pencil', type: 'font-awesome' }}
+                        containerStyle={{ backgroundColor: '#6733b9' }}
+                    />
+                    <TouchableOpacity
+                        style={styles.buttonStyle}
+                    >
+                        <PoppinText style={styles.textStyle}>
+                            Share something?
+                        </PoppinText>
+                    </TouchableOpacity>
+                </View>
+            }
         </View>
     )
 }
