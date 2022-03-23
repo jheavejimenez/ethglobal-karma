@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import { useRef, useState } from "react";
 import ViewWithLoading from "../../components/ViewWithLoading";
-import { Animated, FlatList, ScrollView, StyleSheet, useColorScheme } from "react-native";
+import { Animated, FlatList, ScrollView, StyleSheet, TouchableOpacity, useColorScheme } from "react-native";
 import { View } from "../../components/Themed";
 import { PoppinText } from "../../components/StyledText";
 import { Card } from "react-native-elements";
@@ -52,21 +52,32 @@ export default function ItemListScreen() {
                 }],
                 opacity
             }}>
-                <Card
-                    containerStyle={{
-                        flex: 1,
-                        backgroundColor: themeColor,
-                        borderColor: colorScheme === 'light' ? DefaultColor.darken : '#1C4759'
+                <TouchableOpacity
+                    style={{ flex: 1 }}
+                    onPress={() => {
+                        navigation.navigate("ItemDetail", { post: item });
                     }}
                 >
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Image
-                        style={{ padding: 0 }}
-                        source={{
-                            uri: item.image
+                    <Card
+                        containerStyle={{
+                            flex: 1,
+                            backgroundColor: themeColor,
+                            borderColor: colorScheme === 'light' ? DefaultColor.darken : '#1C4759'
                         }}
-                    />
-                </Card>
+                    >
+                        <Card.Title
+                            style={{
+                                color: colorScheme === 'light' ? DefaultColor.black : DefaultColor.white
+                            }}
+                        >{item.title}</Card.Title>
+                        <Card.Image
+                            style={{ padding: 0 }}
+                            source={{
+                                uri: item.image
+                            }}
+                        />
+                    </Card>
+                </TouchableOpacity>
             </Animated.View>
         );
     }
