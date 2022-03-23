@@ -29,11 +29,13 @@ export default function Header() {
                     >
                         <Ionicons name='search-outline' size={24} color={themeColor} />
                     </Pressable>
-                    <Pressable
-                        style={styles.pressableContainer}
-                    >
-                        <Ionicons name='notifications-outline' size={24} color={themeColor} />
-                    </Pressable>
+                    {connected &&
+                        <Pressable
+                            style={styles.pressableContainer}
+                        >
+                            <Ionicons name='notifications-outline' size={24} color={themeColor} />
+                        </Pressable>
+                    }
                 </View>
             </View>
             {connected &&

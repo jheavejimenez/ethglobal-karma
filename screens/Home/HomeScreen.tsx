@@ -41,7 +41,7 @@ export default function HomeScreen() {
                                 });
                             }}
                         />
-                        {profiles && profiles.map((profile: Profile, index: number) => (
+                        {profiles && profiles.slice(0, 5).map((profile: Profile, index: number) => (
                             <GiverProfile
                                 key={index}
                                 profile={profile}
