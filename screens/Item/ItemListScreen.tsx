@@ -62,7 +62,9 @@ export default function ItemListScreen() {
                         containerStyle={{
                             flex: 1,
                             backgroundColor: themeColor,
-                            borderColor: colorScheme === 'light' ? DefaultColor.darken : '#1C4759'
+                            borderColor: colorScheme === 'light' ? DefaultColor.darken : '#1C4759',
+                            borderRadius: 10
+
                         }}
                     >
                         <Card.Title
