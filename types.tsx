@@ -65,6 +65,7 @@ export type CollectionParamList = {
   Collection: {
     profile: Profile;
   };
+  GiverList: undefined;
 }
 
 export type CollectionTopTabParamList = {
