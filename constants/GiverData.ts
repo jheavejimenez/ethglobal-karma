@@ -31,7 +31,7 @@ export const GiverData = () => {
         ),
         new Profile(
             '4',
-            'Kevin Paul Lamadrid',
+            'Kevin Paul Arcilla Lamadrid',
             45890,
             true,
             'https://fupping.com/wp-content/uploads/2018/06/Personal.png',
