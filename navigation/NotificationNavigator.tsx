@@ -3,22 +3,23 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { HomeScreen } from "../screens/Home";
 import { ItemDetailScreen, ItemListScreen } from "../screens/Item";
-import { HomeParamList } from "../types";
+import { NotificationParamList } from "../types";
 import useColorScheme from '../hooks/useColorScheme';
 import { DefaultColor } from "../constants/Colors";
 import { TouchableOpacity } from "react-native";
 import CollectionNavigator from "./CollectionNavigator";
+import { NotificationListScreen } from "../screens/Notification";
 
 
-const Stack = createNativeStackNavigator<HomeParamList>();
+const Stack = createNativeStackNavigator<NotificationParamList>();
 
-export default function HomeNavigator() {
+export default function NotificationNavigator() {
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
 
     return (
         <Stack.Navigator
-            initialRouteName="Feed"
+            initialRouteName="NotificationList"
             screenOptions={({ navigation }) => ({
                 headerTitleAlign: 'center',
                 headerLeft: () => (
@@ -28,29 +29,16 @@ export default function HomeNavigator() {
                     >
                         <Ionicons name="arrow-back-outline" size={24} color={themeColor} />
                     </TouchableOpacity>
-                )
+                ),
+                headerTitleStyle: { fontFamily: 'poppins-semibold', fontSize: 20 }
             })}
         >
-            <Stack.Screen name="Feed" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen
-                name="ItemList"
-                component={ItemListScreen}
+                name="NotificationList"
+                component={NotificationListScreen}
                 options={{
-                    title: 'Item List'
-                }}
-            />
-            <Stack.Screen
-                name="ItemDetail"
-                component={ItemDetailScreen}
-                options={{
-                    title: 'Details'
-                }}
-            />
-            <Stack.Screen
-                name="CollectionHome"
-                component={CollectionNavigator}
-                options={{
-                    headerShown: false
+                    title: 'Notifications',
+                    headerLeft: () => null
                 }}
             />
         </Stack.Navigator>
