@@ -50,6 +50,7 @@ export default function LandingWallet() {
             <View style={[styles.container, styles.bottomContainer]}>
                 <DefaultButton
                     title="Connect a wallet"
+                    onPress={connectWallet}
                 />
             </View>
         </View>
