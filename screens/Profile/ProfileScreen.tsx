@@ -1,48 +1,42 @@
+import { useNavigation } from "@react-navigation/native";
 import { useWalletConnect } from "@walletconnect/react-native-dapp";
 import * as React from "react";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { StyleSheet, Image, Dimensions } from 'react-native';
 import { DefaultButton } from "../../components/Button/DefaultButton";
 import { PoppinText } from "../../components/StyledText";
 import { Text, View } from '../../components/Themed';
 import ViewWithLoading from "../../components/ViewWithLoading";
+import LandingWallet from "./Landing/LandingWallet";
 
 export default function ProfileScreen() {
+    const navigation = useNavigation();
     const [loading, setLoading] = useState<boolean>(false);
 
     const connector = useWalletConnect();
 
-    const connectWallet = React.useCallback(() => {
-        return connector.connect();
-    }, [connector]);
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerShown: connector.connected
+        })
 
-    const killSession = React.useCallback(() => {
-        return connector.killSession();
-    }, [connector]);
-
+    }, [connector])
 
     return (
         <ViewWithLoading loading={loading}>
-            <View style={styles.container}>
-                {!connector.connected ?
-                    <React.Fragment>
-                        <DefaultButton
-                            title="Connect a wallet"
-                            onPress={connectWallet}
-                        />
-                    </React.Fragment>
-                    :
-                    <View style={{ alignItems: 'center' }}>
-                        <PoppinText>
-                            Connected
-                        </PoppinText>
-                        <DefaultButton
-                            title="Logout"
-                            onPress={killSession}
-                        />
-                    </View>
-                }
-            </View>
+            {!connector.connected ?
+                <LandingWallet />
+                :
+                <View style={{ alignItems: 'center' }}>
+                    <PoppinText>
+                        Connected
+                    </PoppinText>
+                    <DefaultButton
+                        title="Logout"
+                        onPress={() => { }}
+                    />
+                </View>
+            }
         </ViewWithLoading>
     );
 }
