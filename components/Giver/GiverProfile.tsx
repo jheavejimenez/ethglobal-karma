@@ -37,10 +37,13 @@ export default function GiverProfile(props: IProps) {
                     }}
                 />
                 <View style={styles.infoContainer}>
-                    <PoppinText style={{
-                        fontFamily: 'poppins-semibold',
-                        fontSize: 15
-                    }}>
+                    <PoppinText
+                        style={{
+                            fontFamily: 'poppins-semibold',
+                            fontSize: 15
+                        }}
+                        numberOfLines={1}
+                    >
                         {name}
                     </PoppinText>
                     <PoppinText style={{
@@ -78,6 +81,7 @@ const styles = StyleSheet.create({
     },
     avatarContainer: {
         flex: 0,
+        width: '55%',
         flexDirection: 'row',
         alignItems: 'center'
     },
