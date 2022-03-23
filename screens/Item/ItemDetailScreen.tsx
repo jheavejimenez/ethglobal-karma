@@ -48,8 +48,18 @@ export default function ItemDetailScreen() {
                         description={description}
                     />
                     <View style={styles.buttonContainer}>
+
+                        <DefaultButton
+                            title="Message"
+                            icon={{ name: 'chatbox-outline', color: DefaultColor.white }}
+                            onPress={() => {
+                                navigation.navigate("Chat");
+                            }}
+                        />
                         <DefaultButton
                             title="View Location"
+                            backgroundColor={DefaultColor.secondary}
+                            icon={{ name: 'location-outline', color: DefaultColor.white }}
                         />
                     </View>
                 </ScrollView>
