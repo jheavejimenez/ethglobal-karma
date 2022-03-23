@@ -7,7 +7,8 @@ export const DefaultColor = {
   white: '#fff',
   black: '#000',
   dark: '#707070',
-  darken: '#C4C4C4'
+  darken: '#C4C4C4',
+  lighMain: 'rgba(35, 129, 238, 0.2)'
 }
 
 export default {

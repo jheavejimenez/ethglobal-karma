@@ -38,6 +38,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
 
 export type TabParamList = {
   Home: undefined;
+  Notification: undefined;
   Chat: undefined;
   Profile: undefined;
 }
@@ -71,4 +72,8 @@ export type CollectionParamList = {
 export type CollectionTopTabParamList = {
   ItemList: undefined;
   HistoryList: undefined;
+}
+
+export type NotificationParamList = {
+  NotificationList: undefined;
 }

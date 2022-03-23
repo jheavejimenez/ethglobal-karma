@@ -7,12 +7,14 @@ import { DefaultColor } from '../../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
 import { PoppinText } from '../StyledText';
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Header() {
     const colorScheme = useColorScheme();
     const themeColor = colorScheme === 'light' ? DefaultColor.darken : DefaultColor.white;
     const connected = useWalletConnect().connected;
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -29,13 +31,6 @@ export default function Header() {
                     >
                         <Ionicons name='search-outline' size={24} color={themeColor} />
                     </Pressable>
-                    {connected &&
-                        <Pressable
-                            style={styles.pressableContainer}
-                        >
-                            <Ionicons name='notifications-outline' size={24} color={themeColor} />
-                        </Pressable>
-                    }
                 </View>
             </View>
             {connected &&
