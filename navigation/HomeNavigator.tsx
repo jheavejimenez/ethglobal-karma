@@ -35,6 +35,9 @@ export default function HomeNavigator() {
             <Stack.Screen
                 name="ItemList"
                 component={ItemListScreen}
+                options={{
+                    title: 'Item List'
+                }}
             />
             <Stack.Screen
                 name="ItemDetail"

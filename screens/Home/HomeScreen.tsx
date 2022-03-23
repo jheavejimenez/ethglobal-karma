@@ -8,9 +8,10 @@ import CommonHeader from '../../components/Header/CommonHeader';
 import { GiverData } from '../../constants/GiverData';
 import { Profile } from '../../models/Profile';
 import GiverProfile from '../../components/Giver/GiverProfile';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
-
+    const navigation = useNavigation();
     const profiles = GiverData();
 
     return (
@@ -25,7 +26,9 @@ export default function HomeScreen() {
                     <View style={styles.nearbyContainer}>
                         <CommonHeader
                             title='Nearby items'
-                            onPress={() => { }}
+                            onPress={() => {
+                                navigation.navigate("ItemList");
+                            }}
                         />
                         <HomeCarousel />
                     </View>
