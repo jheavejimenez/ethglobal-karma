@@ -9,6 +9,7 @@ import { FollowAbbrev } from "../../utils/FollowAbrrev";
 import { DefaultButton } from "../Button/DefaultButton";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
 
 interface IProps {
     profile: Profile
@@ -19,6 +20,7 @@ export default function GiverProfile(props: IProps) {
     const { name, isFollowed, followers, profilePhoto } = profile;
     const [follow, setFollow] = useState<boolean>(isFollowed);
     const navigation = useNavigation();
+    const connected = useWalletConnect().connected;
 
     return (
         <View style={styles.container}>
@@ -48,16 +50,18 @@ export default function GiverProfile(props: IProps) {
                     </PoppinText>
                 </View>
             </View>
-            <View style={{
-                minWidth: 80,
-                maxWidth: 110
-            }}>
-                <DefaultButton
-                    title={follow ? "Following" : "Follow"}
-                    onPress={() => setFollow(!follow)}
-                    backgroundColor={follow ? DefaultColor.main : DefaultColor.secondary}
-                />
-            </View>
+            {connected &&
+                <View style={{
+                    minWidth: 80,
+                    maxWidth: 110
+                }}>
+                    <DefaultButton
+                        title={follow ? "Following" : "Follow"}
+                        onPress={() => setFollow(!follow)}
+                        backgroundColor={follow ? DefaultColor.main : DefaultColor.secondary}
+                    />
+                </View>
+            }
         </View>
     );
 }

@@ -1,12 +1,8 @@
-import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import { Header } from '../../components/Home';
-import { PoppinText } from '../../components/StyledText';
 import { View } from '../../components/Themed';
 import ViewWithLoading from '../../components/ViewWithLoading';
-import { DefaultColor } from '../../constants/Colors';
 import { Platform, ScrollView, StyleSheet } from 'react-native';
-import useColorScheme from '../../hooks/useColorScheme';
 import { HomeCarousel } from '../../components/Carousel';
 import CommonHeader from '../../components/Header/CommonHeader';
 import { GiverData } from '../../constants/GiverData';
