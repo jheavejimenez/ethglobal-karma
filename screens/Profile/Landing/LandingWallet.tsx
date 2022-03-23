@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import * as React from "react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Dimensions, ImageBackground, StyleSheet, useColorScheme } from "react-native";
 import { View } from "../../../components/Themed";
 import { PoppinText } from "../../../components/StyledText";
@@ -9,6 +9,7 @@ import { DefaultColor } from "../../../constants/Colors";
 import { Surface } from "react-native-paper";
 import { DefaultButton } from "../../../components/Button/DefaultButton";
 import LottieView from 'lottie-react-native';
+import { login } from "../../../repositories/authentication/login-user";
 
 
 export default function LandingWallet() {
@@ -19,12 +20,19 @@ export default function LandingWallet() {
     const connector = useWalletConnect();
 
     const connectWallet = React.useCallback(() => {
-        return connector.connect();
+        return connector.connect()
+            .then((response: any) => {
+                console.log(login(response.accounts[0]));
+            })
+            .catch((error: any) => {
+                console.log(error);
+            });
+    }, [connector]);
+    
+    const killSession = React.useCallback(() => {
+        return connector.killSession();
     }, [connector]);
 
-    // const killSession = React.useCallback(() => {
-    //     return connector.killSession();
-    // }, [connector]);
 
     return (
         <View style={styles.container}>

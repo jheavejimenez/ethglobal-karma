@@ -14,6 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
     "@expo/vector-icons": "^12.0.0",
     "@react-native-async-storage/async-storage": "^1.17.0",
     "@react-navigation/bottom-tabs": "^6.0.5",
@@ -23,6 +24,7 @@
     "@react-navigation/native-stack": "^6.1.0",
     "@types/react-native-snap-carousel": "^3.8.5",
     "@walletconnect/react-native-dapp": "^1.7.5",
+    "ethers": "^5.6.1",
     "expo": "~44.0.0",
     "expo-asset": "~8.4.4",
     "expo-constants": "~13.0.0",
@@ -33,6 +35,7 @@
     "expo-status-bar": "~1.2.0",
     "expo-updates": "~0.11.6",
     "expo-web-browser": "~10.1.0",
+    "graphql": "15.7.2",
     "lottie-ios": "3.2.3",
     "lottie-react-native": "^5.0.1",
     "moment": "^2.29.1",

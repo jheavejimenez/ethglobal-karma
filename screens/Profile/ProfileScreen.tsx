@@ -15,6 +15,10 @@ export default function ProfileScreen() {
 
     const connector = useWalletConnect();
 
+    const killSession = React.useCallback(() => {
+        return connector.killSession();
+    }, [connector]);
+
     useLayoutEffect(() => {
         navigation.setOptions({
             headerShown: connector.connected
@@ -33,7 +37,7 @@ export default function ProfileScreen() {
                     </PoppinText>
                     <DefaultButton
                         title="Logout"
-                        onPress={() => { }}
+                        onPress={killSession}
                     />
                 </View>
             }
