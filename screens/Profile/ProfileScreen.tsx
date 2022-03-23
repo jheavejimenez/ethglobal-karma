@@ -1,3 +1,4 @@
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
 import * as React from "react";
 import { useState } from "react";
 import { StyleSheet, Image, Dimensions } from 'react-native';
@@ -8,39 +9,26 @@ import ViewWithLoading from "../../components/ViewWithLoading";
 
 export default function ProfileScreen() {
     const [loading, setLoading] = useState<boolean>(false);
-    const [connect, setConnect] = useState<boolean>(false);
 
-    const handleConnect = () => {
-        // TODO meta mask connection here;
-        // set true if already connected;
-        setConnect(true);
-    }
+    const connector = useWalletConnect();
 
-    const handleTestMetaMask = () => {
-        // TODO test meta mask;
-        setConnect(false);
-    }
+    const connectWallet = React.useCallback(() => {
+        return connector.connect();
+    }, [connector]);
+
+    const killSession = React.useCallback(() => {
+        return connector.killSession();
+    }, [connector]);
+
 
     return (
         <ViewWithLoading loading={loading}>
             <View style={styles.container}>
-                {!connect ?
+                {!connector.connected ?
                     <React.Fragment>
-                        <View style={styles.imageContainer}>
-                            <Image
-                                source={{
-                                    uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/800px-MetaMask_Fox.svg.png'
-                                }}
-                                style={{
-                                    height: '100%',
-                                    width: '100%',
-                                    resizeMode: 'cover'
-                                }}
-                            />
-                        </View>
                         <DefaultButton
-                            title="Connect MetaMask"
-                            onPress={handleConnect}
+                            title="Connect a wallet"
+                            onPress={connectWallet}
                         />
                     </React.Fragment>
                     :
@@ -49,8 +37,8 @@ export default function ProfileScreen() {
                             Connected
                         </PoppinText>
                         <DefaultButton
-                            title="Test Connection"
-                            onPress={handleTestMetaMask}
+                            title="Logout"
+                            onPress={killSession}
                         />
                     </View>
                 }
