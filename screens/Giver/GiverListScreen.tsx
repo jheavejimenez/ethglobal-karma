@@ -2,22 +2,21 @@ import { useNavigation } from "@react-navigation/native";
 import * as React from "react";
 import { useRef, useState } from "react";
 import ViewWithLoading from "../../components/ViewWithLoading";
-import { Animated, FlatList, ScrollView, StyleSheet, TouchableOpacity, useColorScheme } from "react-native";
+import { Animated, StyleSheet } from "react-native";
 import { View } from "../../components/Themed";
 import { PoppinText } from "../../components/StyledText";
-import { Card } from "react-native-elements";
-import { PostData } from "../../constants/PostData";
-import { DefaultColor } from "../../constants/Colors";
+import { GiverData } from "../../constants/GiverData";
+import { Profile } from "../../models/Profile";
+import GiverProfile from "../../components/Giver/GiverProfile";
 
-
-export default function ItemListScreen() {
+export default function GiverListScreen() {
     const navigation = useNavigation();
     const [loading, setLoading] = useState<boolean>(false);
-    const data = PostData();
-    const colorScheme = useColorScheme();
-    const themeColor = colorScheme === 'light' ? DefaultColor.white : DefaultColor.black;
-    const CARD_HEIGHT = 200;
+    const DATA = GiverData();
+    const CARD_HEIGHT = 50;
     const ITEM_SIZE = CARD_HEIGHT + 10 * 4;
+
+    const scrollY = useRef(new Animated.Value(0)).current;
 
     const _renderItem = ({ item, index }) => {
         const inputRange = [
@@ -45,58 +44,34 @@ export default function ItemListScreen() {
         });
 
         return (
+
             <Animated.View style={{
-                height: 230,
                 transform: [{
                     scale
                 }],
                 opacity
             }}>
-                <TouchableOpacity
-                    style={{ flex: 1 }}
-                    onPress={() => {
-                        navigation.navigate("ItemDetail", { post: item });
-                    }}
-                >
-                    <Card
-                        containerStyle={{
-                            flex: 1,
-                            backgroundColor: themeColor,
-                            borderColor: colorScheme === 'light' ? DefaultColor.darken : '#1C4759',
-                            borderRadius: 10
-
-                        }}
-                    >
-                        <Card.Title
-                            style={{
-                                color: colorScheme === 'light' ? DefaultColor.black : DefaultColor.white
-                            }}
-                        >{item.title}</Card.Title>
-                        <Card.Image
-                            style={{ padding: 0 }}
-                            source={{
-                                uri: item.image
-                            }}
-                        />
-                    </Card>
-                </TouchableOpacity>
+                <GiverProfile
+                    key={index}
+                    profile={item}
+                />
             </Animated.View>
         );
     }
 
-    const scrollY = useRef(new Animated.Value(0)).current;
-
     return (
         <ViewWithLoading loading={loading}>
             <View style={styles.container}>
+
                 <Animated.FlatList
-                    data={data}
+                    data={DATA}
                     renderItem={_renderItem}
                     keyExtractor={item => item.pk}
                     onScroll={Animated.event(
                         [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                         { useNativeDriver: true }
                     )}
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
         </ViewWithLoading>
@@ -106,5 +81,6 @@ export default function ItemListScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 0,
+        padding: 20
     }
 });

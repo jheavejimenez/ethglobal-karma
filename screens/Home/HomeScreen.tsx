@@ -35,7 +35,11 @@ export default function HomeScreen() {
                     <View style={styles.topGiverContainer}>
                         <CommonHeader
                             title='Top givers'
-                            onPress={() => { }}
+                            onPress={() => {
+                                navigation.navigate("CollectionHome", {
+                                    screen: 'GiverList',
+                                });
+                            }}
                         />
                         {profiles && profiles.map((profile: Profile, index: number) => (
                             <GiverProfile

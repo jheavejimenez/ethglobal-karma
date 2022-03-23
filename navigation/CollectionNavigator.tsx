@@ -6,6 +6,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import { DefaultColor } from "../constants/Colors";
 import { TouchableOpacity } from "react-native";
 import { CollectionScreen } from "../screens/Collection";
+import { GiverListScreen } from "../screens/Giver";
 
 
 const Stack = createNativeStackNavigator<CollectionParamList>();
@@ -34,6 +35,13 @@ export default function CollectionNavigator() {
                 component={CollectionScreen}
                 options={{
                     title: 'Collections'
+                }}
+            />
+            <Stack.Screen
+                name="GiverList"
+                component={GiverListScreen}
+                options={{
+                    title: 'Giver List'
                 }}
             />
         </Stack.Navigator>
