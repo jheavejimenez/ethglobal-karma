@@ -33,17 +33,17 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-  const connector = useWalletConnect();
+  // const connector = useWalletConnect();
 
-  const handleRelogin = () => {
-    if (connector.connected){
-      console.log(login(connector.accounts[0]));
-    }
-  }
+  // const handleRelogin = () => {
+  //   if (connector.connected){
+  //     console.log(login(connector.accounts[0]));
+  //   }
+  // }
 
-  useEffect(() => {
-    handleRelogin();
-  }, []);
+  // useEffect(() => {
+  //   handleRelogin();
+  // }, []);
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={TabNavigator} options={{ headerShown: false }} />
