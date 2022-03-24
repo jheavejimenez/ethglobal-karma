@@ -1,13 +1,13 @@
 import { gql } from '@apollo/client/core';
 import { BigNumber, utils } from 'ethers';
-import { apolloClient } from '../../apollo-client';
+import { apolloClient } from '../authentication/apollo-client';
 import { login } from '../authentication/login';
 import { PROFILE_ID } from '../../config';
-import { getAddressFromSigner, signedTypeData, splitSignature } from '../ethers.service';
-import { pollUntilIndexed } from '../indexer/has-transaction-been-indexed';
-import { uploadIpfs } from '../ipfs';
-import { lensHub } from '../lens-hub';
-import { enabledCurrencies } from '../module/enabled-modules-currencies';
+import { getAddressFromSigner, signedTypeData, splitSignature } from '../../ethers.service';
+import { pollUntilIndexed } from '../../indexer/has-transaction-been-indexed';
+import { uploadIpfs } from '../../ipfs';
+import { lensHub } from '../../lens-hub';
+import { enabledCurrencies } from '../../module/enabled-modules-currencies';
 
 const CREATE_POST_TYPED_DATA = `
   mutation($request: CreatePublicPostRequest!) { 
