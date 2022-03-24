@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client/core';
 import { apolloClient } from '../repositories/authentication/apollo-client';
-import { login } from '../repositories/authentication/login-user';
+import { login } from '../repositories/authentication/login';
 import { argsBespokeInit } from '../config';
 import { getAddressFromSigner } from '../ethers.service';
 import { follow } from '../follow/follow';
