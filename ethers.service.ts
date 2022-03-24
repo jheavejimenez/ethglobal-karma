@@ -4,18 +4,18 @@ import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import { ethers, utils } from 'ethers';
 import { omit } from './helpers';
 
-const connector = useWalletConnect();
-const provider = new WalletConnectProvider({
-        rpc: {
-          80001: 'https://rpc-mumbai.maticvigil.com/',
-        },
-        chainId: 80001,
-        connector: connector,
-        qrcode: false,
-    });
-provider.enable(); // should have await here
-const ethersProvider = new ethers.providers.Web3Provider(provider);
-
+// const connector = useWalletConnect();
+// const provider = new WalletConnectProvider({
+//         rpc: {
+//           80001: 'https://rpc-mumbai.maticvigil.com/',
+//         },
+//         chainId: 80001,
+//         connector: connector,
+//         qrcode: false,
+//     });
+// provider.enable(); // should have await here
+// const ethersProvider = new ethers.providers.Web3Provider(provider);
+export const ethersProvider = new ethers.providers.Web3Provider((window as any).ethereum);
 
 export const getSigner = () => {
   return ethersProvider.getSigner();
