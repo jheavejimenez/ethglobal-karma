@@ -3,10 +3,9 @@ import { apolloClient } from '../../repositories/authentication/apollo-client';
 import { PROFILE_ID } from '../../config';
 import { prettyJSON } from '../../helpers';
 
-const GET_PUBLICATIONS = `
-  query($request: PublicationsQueryRequest!) {
-    publications(request: $request) {
-      items {
+const GET_PUBLICATION = `
+  query($request: PublicationQueryRequest!) {
+    publication(request: $request) {
         __typename 
         ... on Post {
           ...PostFields
@@ -16,12 +15,6 @@ const GET_PUBLICATIONS = `
         }
         ... on Mirror {
           ...MirrorFields
-        }
-      }
-      pageInfo {
-        prev
-        next
-        totalCount
       }
     }
   }
@@ -296,31 +289,24 @@ const GET_PUBLICATIONS = `
   }
 `;
 
-// TODO types
-const getPublicationsRequest = (getPublicationQuery: any) => {
+const getPublicationRequest = (publicationId: string) => {
   return apolloClient.query({
-    query: gql(GET_PUBLICATIONS),
+    query: gql(GET_PUBLICATION),
     variables: {
-      request: getPublicationQuery,
+      request: {
+        publicationId,
+      },
     },
   });
 };
 
-export const getPublications = async () => {
-  const profileId = PROFILE_ID;
-  if (!profileId) {
-    throw new Error('Must define PROFILE_ID in the .env to run this');
-  }
-
-  const result = await getPublicationsRequest({
-    profileId,
-    publicationTypes: ['POST', 'COMMENT', 'MIRROR'],
-  });
-  prettyJSON('publications: result', result.data);
+export const getPublication = async () => {
+  const result = await getPublicationRequest('0x12-0x01');
+  prettyJSON('publication: result', result.data);
 
   return result.data;
 };
 
 (async () => {
-  await getPublications();
+  await getPublication();
 })();

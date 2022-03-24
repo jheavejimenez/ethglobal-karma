@@ -19,7 +19,7 @@ const getParamOrExit = (name: string) => {
     return process.argv.find((c) => c === '--init') !== undefined;
   };
   
-  export const PK = getParamOrExit('PK');
+  export const PK = getParamOrExit('PK'); // need to change this to require a private key, it should not require a prive key
   
   export const MUMBAI_RPC_URL = getParamOrExit('MUMBAI_RPC_URL');
   
