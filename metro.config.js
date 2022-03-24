@@ -1,7 +1,9 @@
-module.exports = {
-    resolver: {
-      extraNodeModules: require("expo-crypto-polyfills"),
-      sourceExts: "cjs"
-    },
-  };
-  
+  const { getDefaultConfig } = require("metro-config");
+const { resolver: defaultResolver } = getDefaultConfig.getDefaultValues();
+exports.resolver = {
+  ...defaultResolver,
+  sourceExts: [
+    ...defaultResolver.sourceExts,
+    "cjs",
+  ],
+};
