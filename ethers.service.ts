@@ -1,5 +1,5 @@
 import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
-import WalletConnectProvider from '@walletconnect/web3-provider';
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import { ethers, utils } from 'ethers';
 import { omit } from './helpers';
@@ -7,9 +7,9 @@ import { omit } from './helpers';
 const connector = useWalletConnect();
 const provider = new WalletConnectProvider({
         rpc: {
-            56: 'https://bsc-dataseed1.binance.org:443',
+          80001: 'https://rpc-mumbai.maticvigil.com/',
         },
-        chainId: 56,
+        chainId: 80001,
         connector: connector,
         qrcode: false,
     });
