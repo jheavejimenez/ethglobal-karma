@@ -9,7 +9,7 @@ import { DefaultColor } from "../../../constants/Colors";
 import { Surface } from "react-native-paper";
 import { DefaultButton } from "../../../components/Button/DefaultButton";
 import LottieView from 'lottie-react-native';
-import { login } from "../../../repositories/authentication/login-user";
+import { login } from "../../../repositories/authentication/login";
 
 
 export default function LandingWallet() {

@@ -31,7 +31,6 @@ export const signedTypeData = (
   value: Record<string, any>
 ) => {
   const signer = getSigner();
-  // remove the __typedname from the signature!
   return signer._signTypedData(
     omit(domain, '__typename'),
     omit(types, '__typename'),
