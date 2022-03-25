@@ -1,9 +1,10 @@
 import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const httpLink = new HttpLink({ uri: 'https://api-mumbai.lens.dev/' });
 
 const authLink = new ApolloLink((operation, forward) => {
-  const token = localStorage.getItem('auth_token');
+  const token = AsyncStorage.getItem('auth_token');
 
   operation.setContext({
     headers: {
