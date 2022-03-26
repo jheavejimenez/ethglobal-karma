@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { HomeScreen } from "../screens/Home";
-import { ItemDetailScreen, ItemListScreen } from "../screens/Item";
+import { ItemDetailScreen, ItemListScreen, ItemPostScreen } from "../screens/Item";
 import { HomeParamList } from "../types";
 import useColorScheme from '../hooks/useColorScheme';
 import { DefaultColor } from "../constants/Colors";
@@ -44,6 +44,13 @@ export default function HomeNavigator() {
                 component={ItemDetailScreen}
                 options={{
                     title: 'Details'
+                }}
+            />
+            <Stack.Screen
+                name="ItemPost"
+                component={ItemPostScreen}
+                options={{
+                    title: 'Item Post'
                 }}
             />
             <Stack.Screen
