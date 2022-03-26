@@ -59,6 +59,7 @@ export type HomeParamList = {
   ItemDetail: {
     post: Post;
   };
+  ItemPost: undefined;
   CollectionHome: undefined;
 }
 
