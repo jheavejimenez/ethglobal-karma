@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client/core';
 import { apolloClient } from '../authentication/apollo-client';
 import { login } from '../authentication/login';
-import { argsBespokeInit } from '../../config';
 import { getAddressFromSigner } from '../../ethers.service';
 import { prettyJSON } from '../../helpers';
 
@@ -120,9 +119,3 @@ export const profiles = async (request?: ProfilesRequest) => {
 
   return profilesFromProfileIds.data;
 };
-
-(async () => {
-  if (argsBespokeInit()) {
-    await profiles();
-  }
-})();

@@ -2,6 +2,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import * as React from 'react';
+import { Fragment } from 'react';
 import Colors, { DefaultColor } from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import { HomeScreen } from '../screens/Home';
@@ -34,21 +35,28 @@ export default function TabNavigator() {
                     tabBarIcon: ({ color, focused }) => <TabBarIcon name="home" color={focused ? color : themeColor} />,
                 }}
             />
-            <BottomTab.Screen
-                name="Notification"
-                component={NotificationNavigator}
-                options={{
-                    tabBarBadge: 10,
-                    tabBarIcon: ({ color, focused }) => <TabBarIcon name="notifications" color={focused ? color : themeColor} />,
-                }}
-            />
-            <BottomTab.Screen
-                name="Chat"
-                component={ChatNavigator}
-                options={{
-                    tabBarIcon: ({ color, focused }) => <TabBarIcon name="chatbox" color={focused ? color : themeColor} />,
-                }}
-            />
+            {connected &&
+
+                <Fragment>
+                    <BottomTab.Screen
+                        name="Notification"
+                        component={NotificationNavigator}
+                        options={{
+                            tabBarBadge: 10,
+                            tabBarIcon: ({ color, focused }) => <TabBarIcon name="notifications" color={focused ? color : themeColor} />,
+                        }}
+                    />
+                    <BottomTab.Screen
+                        name="Chat"
+                        component={ChatNavigator}
+                        options={{
+                            tabBarIcon: ({ color, focused }) => <TabBarIcon name="chatbox" color={focused ? color : themeColor} />,
+                        }}
+                    />
+                </Fragment>
+
+            }
+
             <BottomTab.Screen
                 name="Profile"
                 component={ProfileNavigator}

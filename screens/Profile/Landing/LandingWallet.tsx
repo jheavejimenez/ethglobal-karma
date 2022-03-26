@@ -10,29 +10,22 @@ import { Surface } from "react-native-paper";
 import { DefaultButton } from "../../../components/Button/DefaultButton";
 import LottieView from 'lottie-react-native';
 import { login } from "../../../repositories/authentication/login";
+import { TypedDataDomain, TypedDataField } from '@ethersproject/abstract-signer';
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import { ethers, utils } from 'ethers';
+import { omit } from '../../../helpers';
 
+interface IProps {
+    setLoading: (_: boolean) => void;
+    handleConnectWallet: () => void;
+}
 
-export default function LandingWallet() {
+export default function LandingWallet(props: IProps) {
+    const { setLoading, handleConnectWallet } = props;
     const navigation = useNavigation();
-    const [loading, setLoading] = useState<boolean>(false);
     const colorScheme = useColorScheme() === 'light' ? DefaultColor.white : DefaultColor.black;
     const bgLand = useColorScheme() === 'light' ? require('../../../assets/images/bg-land-light.png') : require('../../../assets/images/bg-land-dark.jpg');
     const connector = useWalletConnect();
-
-    const connectWallet = React.useCallback(() => {
-        return connector.connect()
-            .then((response: any) => {
-                console.log(login(response.accounts[0]));
-            })
-            .catch((error: any) => {
-                console.log(error);
-            });
-    }, [connector]);
-    
-    const killSession = React.useCallback(() => {
-        return connector.killSession();
-    }, [connector]);
-
 
     return (
         <View style={styles.container}>
@@ -58,7 +51,7 @@ export default function LandingWallet() {
             <View style={[styles.container, styles.bottomContainer]}>
                 <DefaultButton
                     title="Connect a wallet"
-                    onPress={connectWallet}
+                    onPress={handleConnectWallet}
                 />
             </View>
         </View>

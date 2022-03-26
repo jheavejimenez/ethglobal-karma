@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client/core';
 import { apolloClient } from './apollo-client';
-import { argsBespokeInit } from '../../config';
 import { getAddressFromSigner, signText } from '../../ethers.service';
 import { prettyJSON } from '../../helpers';
 import { getAuthenticationToken, setAuthenticationToken } from '../../state';
+import { storeData } from '../../database/StoreData';
 
 const GET_CHALLENGE = `
   query($request: ChallengeRequest!) {
@@ -31,7 +31,7 @@ const AUTHENTICATION = `
  }
 `;
 
-const authenticate = (address: string, signature: string) => {
+export const authenticate = (address: string, signature: string) => {
   return apolloClient.mutate({
     mutation: gql(AUTHENTICATION),
     variables: {
@@ -43,7 +43,7 @@ const authenticate = (address: string, signature: string) => {
   });
 };
 
-export const login = async (address = getAddressFromSigner()) => {
+export const login = async (address: string) => {
   if (getAuthenticationToken()) {
     console.log('login: already logged in');
     return;
@@ -61,12 +61,7 @@ export const login = async (address = getAddressFromSigner()) => {
   prettyJSON('login: result', accessTokens.data);
 
   setAuthenticationToken(accessTokens.data.authenticate.accessToken);
+  await storeData('auth_token', accessTokens.data);
 
   return accessTokens.data;
 };
-
-(async () => {
-  if (argsBespokeInit()) {
-    await login();
-  }
-})();

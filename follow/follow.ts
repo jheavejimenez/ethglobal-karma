@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client/core';
-import { apolloClient } from '../apollo-client';
-import { login } from '../authentication/login';
-import { argsBespokeInit } from '../config';
+import { apolloClient } from '../repositories/authentication/apollo-client';
+import { login } from '../repositories/authentication/login';
 import { getAddressFromSigner, signedTypeData, splitSignature } from '../ethers.service';
 import { lensHub } from '../lens-hub';
 
@@ -84,9 +83,3 @@ export const follow = async (profileId: string = '0x12') => {
   console.log('follow: tx hash', tx.hash);
   return tx.hash;
 };
-
-(async () => {
-  if (argsBespokeInit()) {
-    await follow();
-  }
-})();

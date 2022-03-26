@@ -33,20 +33,15 @@ const createProfileRequest = (createProfileRequest: {
   });
 };
 
-export const createProfile = async () => {
-  const address = getAddressFromSigner();
-  console.log('create profile: address', address);
+export const createProfile = async (nickname: string) => {
+  console.log('create profile: ', nickname);
 
-  await login(address);
+  // await login(address);
 
   const createProfileResult = await createProfileRequest({
-    handle: new Date().getTime().toString(), // change it to user nickname
+    handle: nickname, // change it to user nickname
   });
 
   prettyJSON('create profile: result', createProfileResult.data);
-
+  return createProfileResult;
 };
-
-(async () => {
-  await createProfile(); // call this funcion to create profile
-})();
