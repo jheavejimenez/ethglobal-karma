@@ -4,8 +4,10 @@ import * as React from "react";
 import { TouchableOpacity } from "react-native";
 import { DefaultColor } from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import { createProfile } from "../repositories/profile/create-profile";
 import { ChatListScreen } from "../screens/Chat";
 import { ProfileScreen } from "../screens/Profile";
+import CreateProfileScreen from "../screens/Profile/CreateProfileScreen";
 import { ProfileParamList } from "../types";
 
 
@@ -35,6 +37,14 @@ export default function ProfileNavigator() {
                 component={ProfileScreen}
                 options={{
                     title: 'Profile',
+                    headerLeft: () => null
+                }}
+            />
+            <Stack.Screen
+                name="CreateProfile"
+                component={CreateProfileScreen}
+                options={{
+                    title: 'Create Profile',
                     headerLeft: () => null
                 }}
             />

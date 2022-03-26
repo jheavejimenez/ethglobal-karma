@@ -2,7 +2,7 @@
   "expo": {
     "name": "ethglobal-decentralized",
     "slug": "ethglobal-decentralized",
-    "version": "1.0.5",
+    "version": "1.0.8",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -19,7 +19,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ethglobal.karma"
     },
     "android": {
       "adaptiveIcon": {

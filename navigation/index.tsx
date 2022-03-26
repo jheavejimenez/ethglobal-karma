@@ -7,12 +7,14 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-
+import { useEffect } from 'react';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
 import TabNavigator from './TabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import { useWalletConnect } from "@walletconnect/react-native-dapp";
+import { login } from '../repositories/authentication/login-user';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -31,6 +33,17 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+  // const connector = useWalletConnect();
+
+  // const handleRelogin = () => {
+  //   if (connector.connected){
+  //     console.log(login(connector.accounts[0]));
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   handleRelogin();
+  // }, []);
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={TabNavigator} options={{ headerShown: false }} />
