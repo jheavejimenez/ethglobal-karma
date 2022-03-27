@@ -18,3 +18,6 @@ After the transaction, the giver is then rewarded one Karma point while others c
 
 ### Karma Point Smart Contract Address
 ```https://mumbai.polygonscan.com/address/0x2Bc92044Dd9827871F816140BF8857Aa3558e5f8```
+
+### FIGMA LINK
+```https://www.figma.com/file/ogYU1LsDxjymEMLUZgbMVU/hackathon?node-id=0%3A1```
