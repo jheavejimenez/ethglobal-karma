@@ -11,7 +11,8 @@ After the transaction, the giver is then rewarded one Karma point while others c
 ***
 ### Note
 - Only Android 10 and below is currently supported
-
+- Metamask is required 
+- Polygon mumbai
 ***
 ### APK LINK
 ```https://expo.dev/artifacts/87144b1c-d1ac-4c45-b840-1d29f4f24f05```
