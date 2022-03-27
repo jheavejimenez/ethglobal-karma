@@ -46,6 +46,10 @@ export default function Header() {
                     />
                     <TouchableOpacity
                         style={styles.buttonStyle}
+                        onPress={() => {
+                            navigation.navigate('ItemPost');
+                        }}
+
                     >
                         <PoppinText style={styles.textStyle}>
                             Share something?
@@ -84,6 +88,7 @@ const styles = StyleSheet.create({
 
     },
     textStyle: {
+        width: '80%',
         borderWidth: 1,
         padding: 10,
         paddingHorizontal: 40,
@@ -91,6 +96,6 @@ const styles = StyleSheet.create({
         borderColor: DefaultColor.darken,
         textAlignVertical: 'bottom',
         fontFamily: 'poppins-semibold',
-
+        textAlign: 'center'
     }
 });

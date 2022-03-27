@@ -27,7 +27,7 @@ export default function ItemProfileTitle(props: IProps) {
                 <Avatar
                     size={45}
                     rounded
-                    source={{ uri: image }}
+                    source={{ uri: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png' }}
                 />
                 <View style={styles.infoContainer}>
                     <PoppinText

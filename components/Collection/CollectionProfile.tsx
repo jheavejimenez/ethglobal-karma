@@ -23,7 +23,7 @@ export default function CollectionProfile(props: IProps) {
             <View>
                 <View style={styles.bgContainer}>
                     <Image
-                        source={{ uri: backgroundPhoto }}
+                        source={{ uri: backgroundPhoto !== '' ? backgroundPhoto : 'https://static.vecteezy.com/system/resources/previews/002/099/719/non_2x/mountain-beautiful-landscape-background-design-illustration-free-vector.jpg' }}
                         style={styles.imageStyle}
                     />
 

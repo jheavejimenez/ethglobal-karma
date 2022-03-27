@@ -50,7 +50,7 @@ export default function LandingWallet(props: IProps) {
             </Surface>
             <View style={[styles.container, styles.bottomContainer]}>
                 <DefaultButton
-                    title="Connect a wallet"
+                    title={connector.connected ? "Sign In" : "Connect a wallet"}
                     onPress={handleConnectWallet}
                 />
             </View>

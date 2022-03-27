@@ -33,7 +33,7 @@ export default function ItemDetailScreen() {
                 >
                     <View style={styles.imageContainer}>
                         <Image
-                            source={{ uri: 'https://d2bywgumb0o70j.cloudfront.net/2020/09/06/ae9a91933da19bda2b7b72798dfd21cb_a1d446e7817f901e.jpg' }}
+                            source={{ uri: post.image }}
                             style={{
                                 height: '100%',
                                 width: '100%',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 0,
         padding: 20,
-        paddingTop: Platform.OS === 'ios' ? 10 : 0
+        paddingTop: Platform.OS === 'ios' ? 10 : 20
     },
     imageContainer: {
         flex: 0,

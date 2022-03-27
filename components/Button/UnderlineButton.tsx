@@ -43,7 +43,6 @@ export function UnderlineButton(props: IProps) {
 const styles = StyleSheet.create({
     surface: {
         flex: 1,
-        elevation: 4,
         overflow: 'hidden',
         marginVertical: 8,
         flexDirection: 'row',

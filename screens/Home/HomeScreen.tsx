@@ -9,10 +9,43 @@ import { GiverData } from '../../constants/GiverData';
 import { Profile } from '../../models/Profile';
 import GiverProfile from '../../components/Giver/GiverProfile';
 import { useNavigation } from '@react-navigation/native';
+import { useCallback, useState } from 'react';
+import { Post } from '../../models/Post';
+import { PostData } from '../../constants/PostData';
+import { useFocusEffect } from '@react-navigation/native';
+import { getData } from '../../database/StoreData';
 
 export default function HomeScreen() {
     const navigation = useNavigation();
     const profiles = GiverData();
+
+    const [posts, setPosts] = useState<Array<Post>>(PostData());
+
+    const handleGetPost = async () => {
+        const data = await getData('post');
+
+        if (data) {
+            const json = JSON.parse(data);
+            const post = new Post(
+                json.pk,
+                json.title,
+                json.description,
+                json.image
+            );
+
+            setPosts([...posts.concat([post])]);
+        }
+    }
+
+    useFocusEffect(
+        useCallback(
+            () => {
+                handleGetPost();
+            },
+            [],
+        )
+
+    )
 
     return (
         <ViewWithLoading loading={false}>
@@ -30,7 +63,9 @@ export default function HomeScreen() {
                                 navigation.navigate("ItemList");
                             }}
                         />
-                        <HomeCarousel />
+                        <HomeCarousel
+                            data={posts}
+                        />
                     </View>
                     <View style={styles.topGiverContainer}>
                         <CommonHeader

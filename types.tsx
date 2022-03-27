@@ -50,6 +50,7 @@ export type ChatParamList = {
 export type ProfileParamList = {
   UserProfile: undefined;
   CreateProfile: undefined;
+  LoggedProfile: undefined;
 }
 
 

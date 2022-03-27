@@ -10,8 +10,6 @@ const authLink = new ApolloLink(async (operation, forward) => {
   if (token !== undefined) {
     const json = JSON.parse(token);
     const test = json.authenticate.accessToken;
-    console.log(test);
-
     operation.setContext({
       headers: {
         'x-access-token': `Bearer ${test}`

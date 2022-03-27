@@ -22,7 +22,7 @@ export default function TabNavigator() {
 
     return (
         <BottomTab.Navigator
-            initialRouteName="Home"
+            initialRouteName={"Home"}
             screenOptions={{
                 tabBarActiveTintColor: DefaultColor.main,
                 headerShown: false,

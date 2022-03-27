@@ -89,7 +89,7 @@ export default function ProfileScreen() {
 
             setAuthenticationToken(accessTokens.data.authenticate.accessToken);
             await storeData('auth_token', JSON.stringify(accessTokens.data));
-            return accessTokens.data;
+            // navigation.navigate("CreateProfile");
         }
         console.log("error");
     };
@@ -107,7 +107,7 @@ export default function ProfileScreen() {
                 setLoading={setLoading}
                 handleConnectWallet={connectWallet}
             />
-            {!connector.connected ?
+            {/* {!connector.connected ?
                 <PoppinText>
                     not Connected
                 </PoppinText>
@@ -116,10 +116,11 @@ export default function ProfileScreen() {
                     Connected
                 </PoppinText>
             }
-            <DefaultButton
+             */}
+            {/* <DefaultButton
                 title="Logout"
                 onPress={killSession}
-            />
+            /> */}
         </ViewWithLoading>
     );
 }
