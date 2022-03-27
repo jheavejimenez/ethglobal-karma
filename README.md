@@ -15,4 +15,9 @@ After the transaction, the giver is then rewarded one Karma point while others c
 - Polygon mumbai
 ***
 ### APK LINK
+
+Expo Build
 ```https://expo.dev/artifacts/87144b1c-d1ac-4c45-b840-1d29f4f24f05```
+
+Native Build
+```https://drive.google.com/file/d/1LEbz2ojD53npB4zpn7WpfbhS7eBHnJLR/view?usp=drivesdk```
