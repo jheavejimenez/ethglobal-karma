@@ -15,3 +15,6 @@ After the transaction, the giver is then rewarded one Karma point while others c
 ***
 ### APK LINK
 ```https://expo.dev/accounts/jrparreno/projects/ethglobal-decentralized/builds/cecb33e9-f214-41f6-b0fc-9dcadbb21d5a```
+
+### Karma Point Address
+```https://mumbai.polygonscan.com/address/0x2Bc92044Dd9827871F816140BF8857Aa3558e5f8```
