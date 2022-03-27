@@ -4,11 +4,11 @@
     "slug": "ethglobal-decentralized",
     "version": "1.0.8",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/playstore.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/dharma-wheel.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -27,10 +27,21 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ethglobal.karma"
+      "package": "com.ethglobal.karma",
+      "icon": "./assets/images/ic_launcher.png"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     }
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {}
   }
 }

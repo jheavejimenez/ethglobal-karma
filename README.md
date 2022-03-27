@@ -10,9 +10,8 @@ People near the meeting spot can claim it. Afterward, they can chat and set when
 After the transaction, the giver is then rewarded one Karma point while others can reward him/her too in a newer post.
 ***
 ### Note
-- Only Android 10 and below is currently supported
 - Metamask is required 
 - Polygon mumbai
 ***
 ### APK LINK
-```https://expo.dev/artifacts/87144b1c-d1ac-4c45-b840-1d29f4f24f05```
+```https://expo.dev/accounts/jrparreno/projects/ethglobal-decentralized/builds/cecb33e9-f214-41f6-b0fc-9dcadbb21d5a```
