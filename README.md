@@ -13,11 +13,11 @@ After the transaction, the giver is then rewarded one Karma point while others c
 - Metamask is required 
 - Polygon mumbai
 ***
-### APK LINK
+### [APK LINK](https://expo.dev/accounts/jrparreno/projects/ethglobal-decentralized/builds/cecb33e9-f214-41f6-b0fc-9dcadbb21d5a)
 ```https://expo.dev/accounts/jrparreno/projects/ethglobal-decentralized/builds/cecb33e9-f214-41f6-b0fc-9dcadbb21d5a```
 
-### Karma Point Smart Contract Address
+### [Karma Point Smart Contract Address](https://mumbai.polygonscan.com/address/0x2Bc92044Dd9827871F816140BF8857Aa3558e5f8)
 ```https://mumbai.polygonscan.com/address/0x2Bc92044Dd9827871F816140BF8857Aa3558e5f8```
 
-### FIGMA LINK
+### [FIGMA LINK](https://www.figma.com/file/ogYU1LsDxjymEMLUZgbMVU/hackathon?node-id=0%3A1)
 ```https://www.figma.com/file/ogYU1LsDxjymEMLUZgbMVU/hackathon?node-id=0%3A1```
