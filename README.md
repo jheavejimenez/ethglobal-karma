@@ -10,7 +10,7 @@ People near the meeting spot can claim it. Afterward, they can chat and set when
 After the transaction, the giver is then rewarded one Karma point while others can reward him/her too in a newer post.
 ***
 ### Note
-- Android 10 is currently supported
+- Only Android 10 and below is currently supported
 
 ***
 ### APK LINK
