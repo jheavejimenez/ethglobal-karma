@@ -15,9 +15,9 @@ export default function CollectionItem() {
 
     return (
         <View style={styles.container}>
-            {images && images.map((image: string) => (
+            {images && images.map((image: string, index: number) => (
                 <View
-                    key={image}
+                    key={index}
                     style={{
                         width: '45%',
                         height: 100,
@@ -28,7 +28,7 @@ export default function CollectionItem() {
                         overflow: 'hidden'
                     }}>
                     <Image
-                        source={{ uri: image }}
+                        source={{ uri: image.toString() }}
                         style={{
                             height: '100%',
                             width: '100%',

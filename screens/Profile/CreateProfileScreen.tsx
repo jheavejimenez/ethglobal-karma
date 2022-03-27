@@ -26,24 +26,11 @@ export default function CreateProfileScreen() {
     const [loading, setLoading] = useState<boolean>(false);
     const [text, setText] = useState<string>("");
 
-    // const connector = useWalletConnect();
-
-    // const provider = new WalletConnectProvider({
-    //     rpc: {
-    //         80001: 'https://rpc-mumbai.maticvigil.com/',
-    //     },
-    //     chainId: 80001,
-    //     connector: connector,
-    //     qrcode: false,
-    // });
-    // const ethersProvider = new ethers.providers.Web3Provider(provider);
-    // const signer = ethersProvider.getSigner();
-
     const handleCreateProfile = () => {
         setLoading(true);
         createProfile(text)
             .then(() => {
-                navigation.navigate("Home");
+                navigation.navigate("LoggedProfile");
             })
             .catch((error: any) => {
                 console.log(error);

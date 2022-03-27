@@ -5,12 +5,17 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import SliderEntry from './SlideEntry';
 import { PostData } from '../../constants/PostData';
 import { itemWidth, sliderWidth } from './SliderEntry_Style';
+import { Post } from '../../models/Post';
 
 const { width: screenWidth } = Dimensions.get('window');
 
 
-export default function HomeCarousel() {
-    const data = PostData();
+interface IProps {
+    data: Array<Post>;
+}
+
+export default function HomeCarousel(props: IProps) {
+    const { data } = props;
 
     const _renderItem = ({ item, index }, parallaxProps: any) => {
         return (

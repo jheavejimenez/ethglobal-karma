@@ -92,7 +92,7 @@ export interface ProfilesRequest {
   whoMirroredPublicationId?: string;
 }
 
-const getProfilesRequest = (request: ProfilesRequest) => {
+export const getProfilesRequest = (request: ProfilesRequest) => {
   return apolloClient.query({
     query: gql(GET_PROFILES),
     variables: {
